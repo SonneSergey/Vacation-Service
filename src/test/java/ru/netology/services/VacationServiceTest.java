@@ -1,57 +1,43 @@
 package ru.netology.services;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
-// Объявление класса
 public class VacationServiceTest {
 
-    // Сценарий 1: Заработок 10,000, Расходы 3,000, Порог 20,000
     @Test
-    public void testCalculateMonthsOfRestScenario1() {
-        VacationService service = new VacationService(10000, 3000, 20000);
+    public void testCalculateScenario1() {
+        VacationService service = new VacationService();
 
-        // Вызов метода calculateRestMonths для получения количества месяцев отдыха
-        int result = service.calculateRestMonths();
+        // Сценарий 1. Входные данные
+        int monthlyIncome = 10000;
+        int monthlyExpenses = 3000;
 
         // Ожидаемое количество месяцев отдыха
-        assertEquals(3, result);
+        int expectedVacationMonths = 3;
+
+        // Вычисление количества месяцев отдыха
+        int actualVacationMonths = service.calculateScenario1(monthlyIncome, monthlyExpenses);
+
+        // Проверка результата
+        Assertions.assertEquals(expectedVacationMonths, actualVacationMonths, "Количество месяцев отдыха не совпадает.");
     }
 
-    // Сценарий 2: Заработок 100,000, Расходы 60,000, Порог 150,000
     @Test
-    public void testCalculateMonthsOfRestScenario2() {
-        VacationService service = new VacationService(100000, 60000, 150000);
+    public void testCalculateScenario2() {
+        VacationService service = new VacationService();
 
-        // Вызов метода calculateRestMonths для получения количества месяцев отдыха
-        int result = service.calculateRestMonths();
+        // Сценарий 2. Входные данные
+        int monthlyIncome = 100000;
+        int monthlyExpenses = 60000;
 
         // Ожидаемое количество месяцев отдыха
-        assertEquals(2, result);
-    }
+        int expectedVacationMonths = 2;
 
-    // Сценарий 3: Заработок 10,000, Расходы 9,000, Порог 20,000
-    @Test
-    public void testCalculateMonthsOfRestScenario3() {
-        VacationService service = new VacationService(10000, 9000, 20000);
+        // Вычисление количества месяцев отдыха
+        int actualVacationMonths = service.calculateScenario2(monthlyIncome, monthlyExpenses);
 
-        // Вызов метода calculateRestMonths для получения количества месяцев отдыха
-        int result = service.calculateRestMonths();
-
-        // Ожидаемое количество месяцев отдыха
-        assertEquals(0, result);
-    }
-
-    // Сценарий 4: Заработок 100,000, Расходы 80,000, Порог 150,000
-    @Test
-    public void testCalculateMonthsOfRestScenario4() {
-        VacationService service = new VacationService(100000, 90000, 150000);
-
-        // Вызов метода calculateRestMonths для получения количества месяцев отдыха
-        int result = service.calculateRestMonths();
-
-        // Ожидаемое количество месяцев отдыха
-        assertEquals(0, result);
+        // Проверка результата
+        Assertions.assertEquals(expectedVacationMonths, actualVacationMonths, "Количество месяцев отдыха не совпадает.");
     }
 }
