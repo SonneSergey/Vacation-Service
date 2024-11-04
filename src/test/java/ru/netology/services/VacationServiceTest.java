@@ -1,43 +1,34 @@
 package ru.netology.services;
 
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class VacationServiceTest {
 
     @Test
-    public void testCalculateScenario1() {
+    public void testCalculateVacationMonthsScenario1() {
         VacationService service = new VacationService();
-
-        // Сценарий 1. Входные данные
         int monthlyIncome = 10000;
         int monthlyExpenses = 3000;
+        int vacationThreshold = 20000;
 
-        // Ожидаемое количество месяцев отдыха
-        int expectedVacationMonths = 3;
+        int result = service.calculateVacationMonths(monthlyIncome, monthlyExpenses, vacationThreshold);
 
-        // Вычисление количества месяцев отдыха
-        int actualVacationMonths = service.calculateScenario1(monthlyIncome, monthlyExpenses);
-
-        // Проверка результата
-        Assertions.assertEquals(expectedVacationMonths, actualVacationMonths, "Количество месяцев отдыха не совпадает.");
+        // Ожидаемый результат: 3 месяца отпуска
+        assertEquals(3, result);
     }
 
     @Test
-    public void testCalculateScenario2() {
+    public void testCalculateVacationMonthsScenario2() {
         VacationService service = new VacationService();
-
-        // Сценарий 2. Входные данные
         int monthlyIncome = 100000;
         int monthlyExpenses = 60000;
+        int vacationThreshold = 150000;
 
-        // Ожидаемое количество месяцев отдыха
-        int expectedVacationMonths = 2;
+        int result = service.calculateVacationMonths(monthlyIncome, monthlyExpenses, vacationThreshold);
 
-        // Вычисление количества месяцев отдыха
-        int actualVacationMonths = service.calculateScenario2(monthlyIncome, monthlyExpenses);
-
-        // Проверка результата
-        Assertions.assertEquals(expectedVacationMonths, actualVacationMonths, "Количество месяцев отдыха не совпадает.");
+        // Ожидаемый результат: 2 месяца отпуска
+        assertEquals(2, result);
     }
 }
