@@ -1,7 +1,7 @@
 package ru.netology.services;
 
 public class VacationService {
-    public int calculateVacationMonths(int monthlyIncome, int monthlyExpenses, int threshold) {
+    public int calculateVacationMonths(int income, int expenses, int threshold) {
 
         // Начальный баланс
         int balance = 0;
@@ -14,8 +14,8 @@ public class VacationService {
             // Проверка, если баланс превышает или равен порогу, то можно отдыхать
             if (balance >= threshold) {
 
-                // Отпуск: снимаем расходы, затем делим оставшуюся сумму на 3
-                balance -= monthlyExpenses;
+                // Отпуск: используем расходы, затем делим оставшуюся сумму на 3
+                balance -= expenses;
                 balance /= 3;
 
                 // Увеличение количество месяцев отпуска
@@ -24,7 +24,7 @@ public class VacationService {
             } else {
 
                 // Работа: доход/расход
-                balance += monthlyIncome - monthlyExpenses;
+                balance += income - expenses;
                 System.out.println("Месяц " + month + ": Работа. Баланс после доходов и расходов: " + balance);
             }
         }
