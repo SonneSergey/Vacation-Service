@@ -5,11 +5,11 @@ public class Main {
         VacationService service = new VacationService();
 
         // Сценарий 1
-        int monthsOfVacationForScenario1 = service.calculateVacationMonths(10000, 3000, 20000);
-        System.out.println("Сценарий 1: Количество месяцев отпуска: " + monthsOfVacationForScenario1);
+        int monthsVacationForScenario1 = service.calculateVacationMonths(10000, 3000, 20000);
+        System.out.println("Сценарий 1: Количество месяцев отпуска: " + monthsVacationForScenario1);
 
         // Сценарий 2
-        int monthsOfVacationForScenario2 = service.calculateVacationMonths(100000, 60000, 150000);
-        System.out.println("Сценарий 2: Количество месяцев отпуска: " + monthsOfVacationForScenario2);
+        int monthsVacationForScenario2 = service.calculateVacationMonths(100000, 60000, 150000);
+        System.out.println("Сценарий 2: Количество месяцев отпуска: " + monthsVacationForScenario2);
     }
 }
